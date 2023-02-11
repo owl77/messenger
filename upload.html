@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:lightgrey">
+<style>
+input[type="submit"]{
+    /* change these properties to whatever you want */
+    background-color: lightblue;
+    color: purple;
+    border-radius: 20px;
+    width: 700px;
+    height: 200px;
+    font-size: 4em;
+}
+
+#yourBtn {
+
+ background-color: lightblue;
+    color: purple;
+    border-radius: 20px;
+    width: 700px;
+    height: 200px;
+    font-size: 3em;
+
+}
+
+
+</style>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div style="text-align:center">
+<button id="yourBtn" name="Btn" onclick="getFile()" >Choose File</button><br>
+<form name="myForm" action="upload.php" method="post" enctype="multipart/form-data">
+<div style='height: 0px;width: 0px; overflow:hidden;'>
+<input id="fileToUpload" name = "fileToUpload" type="file" value="upload"  />
+</div>
+<br> 
+  
+<br><br><br>
+
+ <input type="submit" value="Upload File"   name="submit"/>
+</form>
+</div>
+
+<script>
+var fileInput = document.querySelector('input[type=file]');
+var filenameContainer = document.querySelector('button[name=Btn]');
+
+fileInput.addEventListener('change', function() {
+        filenameContainer.innerText = fileInput.value.split('\\').pop();
+});
+
+function getFile() {
+  document.getElementById("fileToUpload").click();
+}
+
+
+
+</script>
+
+
+</body>
+</html>
